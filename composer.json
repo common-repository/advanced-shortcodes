@@ -1,0 +1,45 @@
+{
+  "name": "beautifulplugins/advanced-shortcodes",
+  "description": "Shortcodes - Advanced Shortcode Manager is a powerful and user-friendly WordPress plugin designed to help you manage shortcodes across your website.",
+  "homepage": "https://beautifulplugins.com/advanced-shortcodes/",
+  "type": "wordpress-plugin",
+  "license": "GPL-2.0-or-later",
+  "prefer-stable": true,
+  "minimum-stability": "dev",
+  "repositories": [
+    {
+      "url": "git@github.com:wpfresher/wpfresher-sniffs.git",
+      "type": "github"
+    }
+  ],
+  "require": {
+    "php": ">=7.4"
+  },
+  "require-dev": {
+    "wpfresher/wpfresher-sniffs": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "AdvancedShortcodes\\": [ "includes/" ]
+    }
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "sort-packages": true,
+    "allow-plugins": {
+      "composer/*": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "composer dump-autoload"
+    ],
+    "post-update-cmd": [
+      "composer dump-autoload"
+    ],
+    "phpcs": "@php ./vendor/bin/phpcs --standard=phpcs.xml -s -v",
+    "phpcbf": "@php ./vendor/bin/phpcbf --standard=phpcs.xml -v"
+  },
+  "extra": {}
+}
